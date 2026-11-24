@@ -14,13 +14,28 @@
 
 ---
 
+## GitHub Star History
+
+![Total Stars](https://img.shields.io/badge/Total%20Stars-10-f59e0b?style=flat-square)
+
+<a href="https://www.star-history.com/?type=date&repos=bigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=bigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying&type=date&theme=dark&legend=top-left" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=bigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying&type=date&legend=top-left" />
+    <img alt="BigBrainDevBros Combined Star History Chart" src="https://api.star-history.com/chart?repos=bigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying&type=date&legend=top-left" />
+  </picture>
+</a>
+
+---
+
 ## About Us
 
 **BigBrainDevBros** is a collaborative engineering organization focused on building fast, local-first, zero-telemetry software across browser-native multiplayer games, native macOS utilities, extensions, and CLI tools.
 
 ### Featured Organization Projects
 
-- **[RenYing](https://github.com/BigBrainDevBros/RenYing)**: Ink-wash martial-arts fighting game in the browser with 36 heroes, serverless WebRTC P2P rollback netplay, and an optional Cloudflare Worker backend.
+- **[FaceOff](https://github.com/BigBrainDevBros/FaceOff)** · [Play Online](https://bigbraindevbros.github.io/FaceOff/): Browser-native 5v5 bomb defusal on de_dust2 built with Three.js — CS2-style rules, economy, weapons, and tactical bots.
+- **[RenYing](https://github.com/BigBrainDevBros/RenYing)** · [Play Online](https://bigbraindevbros.github.io/RenYing/): Ink-wash martial-arts fighting game in the browser with 36 heroes, serverless WebRTC P2P rollback netplay, and an optional Cloudflare Worker backend.
 
 ### Core Engineering Principles
 
