@@ -1,0 +1,6 @@
+{
+  "name": "BigBrainDevBros Standard CI",
+  "description": "Validates workflow YAML files and conventional 3-word commit messages with least-privilege permissions.",
+  "iconName": "octicon shield-check",
+  "categories": ["Automation"]
+}
