@@ -5,7 +5,6 @@
 **Local-First Software, Browser Games, Native Desktop Apps And Developer Tooling**
 
 ![Organization](https://img.shields.io/badge/GitHub-BigBrainDevBros-58a6ff?style=flat-square)
-![Members](https://img.shields.io/badge/Members-AMFI--Disable%20%7C%20DPMNX-success?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
 [Policy Guidelines](../check.md) · [Workspace Templates](../template.md) · [Contributing](../contributing.md) · [Security Policy](../security.md) · [Code Of Conduct](../code_of_conduct.md)
@@ -16,15 +15,7 @@
 
 ## GitHub Star History
 
-![Total Stars](https://img.shields.io/badge/Total%20Stars-10-f59e0b?style=flat-square)
-
-<a href="https://www.star-history.com/?type=date&repos=bigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=bigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying&type=date&theme=dark&legend=top-left" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=bigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying&type=date&legend=top-left" />
-    <img alt="BigBrainDevBros Combined Star History Chart" src="https://api.star-history.com/chart?repos=bigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying&type=date&legend=top-left" />
-  </picture>
-</a>
+Star history for the three featured games is available in the [game comparison chart](https://www.star-history.com/?type=date&repos=BigBrainDevBros%2FFaceOff%2CBigBrainDevBros%2FRenYing%2CBigBrainDevBros%2FVANTAGE). The [ecosystem activity chart](https://github.com/AMFI-Disable/AMFI-Disable#github-star-history--activity) includes the total for all public BigBrainDevBros repositories.
 
 ---
 
@@ -34,8 +25,9 @@
 
 ### Featured Organization Projects
 
-- **[FaceOff](https://github.com/BigBrainDevBros/FaceOff)** · [Play Online](https://bigbraindevbros.github.io/FaceOff/): Browser-native 5v5 bomb defusal on de_dust2 built with Three.js — CS2-style rules, economy, weapons, and tactical bots.
+- **[FaceOff](https://github.com/BigBrainDevBros/FaceOff)** · [Play Online](https://bigbraindevbros.github.io/FaceOff/): First-to-nine arena duels with four maps and timed position reveals.
 - **[RenYing](https://github.com/BigBrainDevBros/RenYing)** · [Play Online](https://bigbraindevbros.github.io/RenYing/): Ink-wash martial-arts fighting game in the browser with 36 heroes, serverless WebRTC P2P rollback netplay, and an optional Cloudflare Worker backend.
+- **[VANTAGE](https://github.com/BigBrainDevBros/VANTAGE)** · [Play Online](https://bigbraindevbros.github.io/VANTAGE/) · HilbertQiu’s standalone procedural city shooter with solo bot matches.
 
 ### Core Engineering Principles
 
