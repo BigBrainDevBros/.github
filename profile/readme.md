@@ -15,7 +15,15 @@
 
 ## GitHub Star History
 
-Star history for the three featured games is available in the [game comparison chart](https://www.star-history.com/?type=date&repos=BigBrainDevBros%2FFaceOff%2CBigBrainDevBros%2FRenYing%2CBigBrainDevBros%2FVANTAGE). The [ecosystem activity chart](https://github.com/AMFI-Disable/AMFI-Disable#github-star-history--activity) includes the total for all public BigBrainDevBros repositories.
+![Total Stars](https://img.shields.io/badge/Total%20Stars-14-f59e0b?style=flat-square)
+
+<a href="https://www.star-history.com/?type=date&repos=bigbraindevbros%2F.github%2Cbigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying%2Cbigbraindevbros%2Fvantage">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=bigbraindevbros%2F.github%2Cbigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying%2Cbigbraindevbros%2Fvantage&type=date&theme=dark&legend=top-left" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=bigbraindevbros%2F.github%2Cbigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying%2Cbigbraindevbros%2Fvantage&type=date&legend=top-left" />
+    <img alt="BigBrainDevBros Combined Star History Chart" src="https://api.star-history.com/chart?repos=bigbraindevbros%2F.github%2Cbigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying%2Cbigbraindevbros%2Fvantage&type=date&legend=top-left" />
+  </picture>
+</a>
 
 ---
 
