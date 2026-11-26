@@ -753,3 +753,27 @@ Instead, report it privately through one of the following channels:
 - **GitHub Security Advisories**: Open a private security advisory on `https://github.com/AMFI-Disable/<Repo>/security/advisories/new`.
 - **Direct Email**: Contact `evengao6688@gmail.com` with reproduction steps, affected environment details, and impact summary.
 ````
+
+---
+
+## 13. Versioning And Release Management
+
+All repositories follow **Semantic Versioning** (`MAJOR.MINOR.PATCH`, optionally suffixed with `-alpha.N`, `-beta.N`, or `-rc.N` for pre-releases).
+
+### Increment Rules
+
+| Component | When To Increment | Examples |
+| :--- | :--- | :--- |
+| **`MAJOR` (`X.0.0`)** | Breaking save/protocol/API changes, major engine rewrites, or incompatible config migrations | Rollback protocol change breaking older clients; D1 schema break |
+| **`MINOR` (`0.X.0`)** | Backward-compatible feature additions, new modes/maps/heroes, or substantial UI additions | New game mode, new macOS utility module, new extension feature |
+| **`PATCH` (`0.0.X`)** | Bug fixes, CI/dependency fixes, performance tuning, documentation updates, or urgent hotfixes | D1 quota protection, CI race fix, link/copy fixes |
+
+### Planning And Tracking Integration
+
+- **GitHub Milestones** represent **target release versions** (for example, `v1.1.0`, `v0.2.0`).
+- **Master Epics** organize phased roadmaps (`Phase 1..N`) and must declare:
+  - Current Version and Target Release Version
+  - Release Objectives, Phases, Dependencies, and Compatibility Requirements
+  - Testing and Release Acceptance Criteria, Changelog Requirements, and Deployment Procedures
+- **Labels** classify `priority:*`, `difficulty:*`, `type:*`, `area:*`, and `status:*`.
+- **Release Gate**: Tagging and publishing (`vX.Y.Z`) occurs only after all milestone-required issues are closed, acceptance criteria are met, and CI passes. Urgent patches may release independently on `main` without blocking the next `MINOR` milestone.

@@ -34,11 +34,12 @@
 ### Featured Organization Projects
 
 - **[FaceOff](https://github.com/BigBrainDevBros/FaceOff)** · [Play Online](https://bigbraindevbros.github.io/FaceOff/): First-to-nine arena duels with four maps and timed position reveals.
-- **[RenYing](https://github.com/BigBrainDevBros/RenYing)** · [Play Online](https://bigbraindevbros.github.io/RenYing/): Ink-wash martial-arts fighting game in the browser with 36 heroes, serverless WebRTC P2P rollback netplay, and an optional Cloudflare Worker backend.
-- **[VANTAGE](https://github.com/BigBrainDevBros/VANTAGE)** · [Play Online](https://bigbraindevbros.github.io/VANTAGE/) · HilbertQiu’s standalone procedural city shooter with solo bot matches.
+- **[RenYing](https://github.com/BigBrainDevBros/RenYing)** · [Play Online](https://bigbraindevbros.github.io/RenYing/): Ink-wash martial-arts fighting game in the browser with 20 distinct heroes, serverless WebRTC P2P rollback netplay, and an optional Cloudflare Worker backend.
+- **[VANTAGE](https://github.com/BigBrainDevBros/VANTAGE)** · [Play Online](https://bigbraindevbros.github.io/VANTAGE/) · HilbertQiu’s standalone procedural city shooter with solo bot matches and multiplayer.
 
-### Core Engineering Principles
+### Collaboration And Engineering Principles
 
 - **Local-First And Zero Telemetry**: Complete client-side ownership with no tracking bloat.
 - **High-Craft Performance**: Native platform APIs and lean web bundles built for speed.
-- **Clean Engineering Hygiene**: Automated CI, reproducible builds, and strict compliance with [Policy Guidelines](../check.md) and [Workspace Templates](../template.md).
+- **Clean Engineering Hygiene**: Automated CI, Semantic Versioning (`MAJOR.MINOR.PATCH`), reproducible builds, and strict compliance with [Policy Guidelines](../check.md) and [Workspace Templates](../template.md).
+- **Cross-Repository Collaboration**: Teammates use [GitHub Discussions](https://github.com/orgs/BigBrainDevBros/discussions) or `.github` cross-repo suggestion templates to exchange ideas across projects.

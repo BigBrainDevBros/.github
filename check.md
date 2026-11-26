@@ -96,6 +96,7 @@ Before saving, committing, or pushing changes, every agent must verify:
 7. [ ] **Title Case Headers**: Are all headers formatted with Capitalized Words in human phrasing?
 8. [ ] **No Emojis**: Are all documentation files, release notes, and `.github/` templates completely free of emojis?
 9. [ ] **No Unapproved Releases**: Are all publishing/release actions held until specifically requested by the user?
+10. [ ] **Version Parity**: On release commits, do manifest/in-app version constants match `changelog.md` and the target SemVer tag?
 
 ---
 
