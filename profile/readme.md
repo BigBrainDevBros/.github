@@ -7,7 +7,7 @@
 ![Organization](https://img.shields.io/badge/GitHub-BigBrainDevBros-58a6ff?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-[Policy Guidelines](../check.md) · [Workspace Templates](../template.md) · [Contributing](../contributing.md) · [Security Policy](../security.md) · [Code Of Conduct](../code_of_conduct.md)
+[简体中文](readme.zh-cn.md) · [Policy Guidelines](../check.md) · [Workspace Templates](../template.md) · [Contributing](../contributing.md) · [Security Policy](../security.md) · [Code Of Conduct](../code_of_conduct.md)
 
 </div>
 

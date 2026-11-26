@@ -1,5 +1,7 @@
 # Contributing To BigBrainDevBros
 
+[简体中文](contributing.zh-cn.md) · [Workspace Templates](template.md) · [Policy Guidelines](check.md) · [Security Policy](security.md)
+
 All contributors and AI agents working in **BigBrainDevBros** repositories must strictly comply with the mandatory organization standards defined in [Policy Guidelines](check.md) and [Workspace Templates](template.md).
 
 ## Access And Permissions

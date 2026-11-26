@@ -1,0 +1,24 @@
+name: Cross-Repository Suggestion / 跨仓库建议
+description: Propose an improvement or shared pattern across BigBrainDevBros projects / 跨项目交流建议或通用方案
+title: "[FEATURE] "
+labels: ["enhancement"]
+body:
+  - type: input
+    id: context
+    attributes:
+      label: Source And Target Repository / 来源与目标仓库
+      placeholder: "e.g. RenYing -> FaceOff"
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal / 建议内容
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Expected Impact / 预期收益
+    validations:
+      required: true

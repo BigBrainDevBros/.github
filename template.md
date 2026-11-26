@@ -393,40 +393,42 @@ npm test
 
 ---
 
-## 4. Git Tags And Release Versioning
+## 4. Versioning, Milestones, Tags, And GitHub Releases
 
-1. **Standard Production Releases**: Lowercase `v` followed by semantic version: `v<MAJOR>.<MINOR>.<PATCH>` (e.g. `v0.2.0`, `v1.0.0`).
-2. **Pre-Release Builds**: `v<MAJOR>.<MINOR>.<PATCH>-<stage>.<build>` (e.g. `v1.1.0-rc.1`).
-3. **Prohibited Tag Formats**:
-   - Invalid: `1.0.0` (missing `v` prefix)
-   - Invalid: `V1.0.0` (uppercase `V`)
-   - Invalid: `release-1.0.0` or `build-100`
+All repositories follow **Semantic Versioning** (`MAJOR.MINOR.PATCH`, optionally suffixed with `-alpha.N`, `-beta.N`, or `-rc.N` for pre-releases).
 
----
+| Component | When To Increment | Examples |
+| :--- | :--- | :--- |
+| **`MAJOR` (`X.0.0`)** | Breaking save/protocol/API changes, major engine rewrites, or incompatible config migrations | Rollback protocol change breaking older clients; D1 schema break |
+| **`MINOR` (`0.X.0`)** | Backward-compatible feature additions, new modes/maps/heroes, or substantial UI additions | New game mode, new macOS utility module, new extension feature |
+| **`PATCH` (`0.0.X`)** | Bug fixes, CI/dependency fixes, performance tuning, documentation updates, or urgent hotfixes | D1 quota protection, CI race fix, link/copy fixes |
 
-## 5. Release Titles And Release Notes Body
+### GitHub Milestones And Tags
 
-The release description template follows the `GeoFS_Extension` format: concise, scannable, emoji-free, with no redundant H1 header, omitting empty change sections, and ending with a GitHub compare link.
+- **Milestones**: Represent target release versions (`v<MAJOR>.<MINOR>.<PATCH> — <English Focus> / <中文主题>`, e.g., `v1.1.0 — 20-Hero Depth & Replay 2.0 / 20侠客深度与回放2.0`). All milestone issues must close (or be deferred) before tagging.
+- **Git Tags**: Lowercase `v` followed by SemVer (`v1.0.0`, `v1.1.0-rc.1`). Never use `1.0.0`, `V1.0.0`, or `release-1.0.0`.
+- **Release Gate**: Tagging and publishing (`vX.Y.Z`) occurs only after milestone criteria are met and CI passes. Urgent patches may release independently on `main`.
 
-### Release Title Standards
+### Release Titles And Release Notes Body
 
 | Release Type | Title Formula | Example |
 | :--- | :--- | :--- |
-| **Feature / Milestone** | `<App Name> v<Version>` or `<App Name> v<Version> - <Focus>` | `GeoFS Extension v0.2.0` |
+| **Feature / Milestone** | `<App Name> v<Version> - <Focus>` | `RenYing v1.1.0 - 20-Hero Depth & Replay 2.0` |
 | **Inaugural Release** | `<App Name> v<Version> - Inaugural Release` | `BrewStore v1.0.0 - Inaugural Release` |
 | **Maintenance / Patch** | `<App Name> v<Version> - <Fix Focus>` | `BrewStore v1.0.1 - Casing Normalization` |
-
-### Canonical Release Notes Body Template (`GeoFS_Extension` Standard)
 
 ````markdown
 <App Name> v<Version> <1-2 sentence executive summary explaining what this release adds, fixes, or improves.>
 
+### 中文摘要
+
+<可选：重大版本或双语项目的 1-2 句简体中文版本摘要。>
+
 > [!CAUTION]
-> **<Optional Contextual Notice Title>**. <Include only when applicable, such as an educational/fair-play disclaimer for extensions/automation or an unnotarized build note for macOS apps.>
+> **<Optional Contextual Notice Title>**. <Include only when applicable, such as an educational/fair-play disclaimer or an unnotarized macOS build note.>
 
 ## Added
 
-- <Concise, user-facing description of new capability or feature.>
 - <Concise, user-facing description of new capability or feature.>
 
 ## Changed
@@ -439,10 +441,7 @@ The release description template follows the `GeoFS_Extension` format: concise, 
 
 ## Install Or Update
 
-<Tailor this block strictly to how the project is distributed:>
-- **Browser Extension**: Extract the extension ZIP from **Assets**. Open `chrome://extensions`, enable **Developer mode**, and use **Load unpacked** (or click **Reload** after replacing files).
-- **Homebrew / macOS App**: Run `brew update && brew upgrade --cask <cask-name>`, or download `<app-name>-<version>.dmg` from **Assets** and verify its SHA-256 checksum (`<hash>`).
-- **CLI / Python**: Run `brew upgrade <formula>` or `pip install --upgrade <package>`.
+<Tailor this block strictly to how the project is distributed (GitHub Releases Assets, Homebrew cask/formula, or pip).>
 
 [Full Changelog](https://github.com/AMFI-Disable/<Repo>/compare/v<Prev>...v<Curr>)
 ````
@@ -452,21 +451,21 @@ The release description template follows the `GeoFS_Extension` format: concise, 
 
 ---
 
-## 6. Commit Message Structure (`xxx: xxx xxx xxx`)
+## 5. Commits, Branches, And Contributor Attribution
 
 All Git commits across managed repositories (excluding `Extensions/TornTools`) must adhere to:
 
 $$\text{type}: \text{word1 } \text{word2 } \text{word3}$$
 
 1. **Type Prefix**: Lowercase prefix followed by `: ` (`feat:`, `fix:`, `docs:`, `ci:`, `chore:`, `refactor:`, `test:`, `perf:`, `style:`).
-2. **Word Count**: **Exactly three words** after the colon and space.
-3. **Word Characters**: Lowercase letters and numbers only (`[a-z0-9]`).
-4. **Validation Regex**: `^[a-z]+: [a-z0-9]+ [a-z0-9]+ [a-z0-9]+$`
-5. **No Scopes or Trailing Punctuation**: `feat(ui): add button` and `fix: resolve bug.` are invalid; use `feat: add ui button` and `fix: resolve bug`.
+2. **Word Count & Characters**: **Exactly three words** of lowercase letters and numbers only (`^[a-z]+: [a-z0-9]+ [a-z0-9]+ [a-z0-9]+$`). Optional issue footer: `Refs #N` or `Closes #N`.
+3. **No Scopes or Trailing Punctuation**: `feat(ui): add button` and `fix: resolve bug.` are invalid; use `feat: add ui button` and `fix: resolve bug`.
+4. **Branch Naming**: Trunk-based `main` (`master` only in `TornTools`). When opening a PR branch, use `<type>/<issue>-<short-slug>` (e.g., `fix/15-mode-sync`, `feat/55-replay-scrub`).
+5. **Contributor Attribution**: Never rewrite shared `main` history or strip `Co-authored-by` / original author metadata.
 
 ---
 
-## 7. Changelog Specification (`changelog.md`)
+## 6. Changelog Specification (`changelog.md`)
 
 Maintain a `changelog.md` following Keep a Changelog with Title Case headers and zero emojis:
 
@@ -502,129 +501,51 @@ All notable changes, features, and fixes for this project are documented in this
 
 ---
 
-## 8. GitHub Issue And Pull Request Templates
+## 7. Issues, Master Epics, Pull Requests, Discussions, And Projects
 
-Keep `.github/` templates concise, emoji-free, and matched to the repository's actual runtime (do not ask for macOS/Homebrew versions in web games, extensions, or Python tools).
+### Standardized Issue Title Prefixes
 
-### Bug Report Template (`.github/issue_template/bug_report.md`)
+Every new or open issue title must begin with one canonical uppercase bracketed prefix (English or Simplified Chinese allowed after the prefix):
 
-#### Variant 1: Web, Browser Extension, And Script Repositories
+| Prefix | Scope |
+| :--- | :--- |
+| **`[EPIC]`** | Phased master roadmap coordinating multiple child issues |
+| **`[FEATURE]`** | New feature, mode, gameplay mechanic, or enhancement |
+| **`[BUG]`** | Defect, regression, or unexpected runtime behavior |
+| **`[REFACTOR]`** | Structural code, data, or tooling reorganization |
+| **`[PERF]`** | Rendering, simulation, bundle, or quota/latency optimization |
+| **`[UI]`** | Visual layout, HUD, accessibility, or audio/UX polish |
+| **`[TEST]`** | Automated test suites, regression harnesses, or CI validation |
+| **`[DOCS]`** | Documentation, READMEs, wikis, or design specifications |
+| **`[SECURITY]`** | Security hardening, permissions, auth, or vulnerability fixes |
+
+### Issue Metadata, Master Epics, And Pull Requests
+
+1. **Labels & Milestones**: Assign priority (`priority: p0`–`p3` or `P0`–`P3`), difficulty (`difficulty: low|medium|high` or `难度: 低|中|高`), `area:*` (`epic` for master epics), target release milestone, and 1 primary assignee (`1–2` concurrent active issues/teammate; no rigid deadlines).
+2. **Master Epics**: Declare `Current Version`, `Target Release Version`, `Phased Execution Plan` (`Phase 1..N`), child issue links/dependencies, periodic progress comments citing commit SHAs, and release acceptance criteria.
+3. **Pull Requests (`.github/pull_request_template.md`)**: Include bilingual headings (`## Summary / 变更摘要`, `## Linked Issues / 关联议题`, `## Verification Evidence / 验证结果`, `## Checklist / 提交前检查`), passing CI, and peer review on shared core/netplay/server changes.
+4. **GitHub Discussions & Projects**: Use `BigBrainDevBros/.github` Discussions (`[Topic] <Summary>` or `[Cross-Repo] <Source> -> <Target>: <Summary>`) for cross-repo ideas; use Project columns `Backlog` -> `Ready` -> `In Progress` -> `In Review` -> `Done` (+ `Paused`).
+
+---
+
+## 8. Bilingual Support Standard (English & Simplified Chinese)
+
+Repositories use a **Three-Tier Bilingual Framework** for English (`en`) and Simplified Chinese (`zh-CN`):
+
+1. **Tier A — English-Only Technical Identifiers**: Commit messages, branch names, SemVer tags, GitHub labels, `[PREFIX]` tags, file/folder paths, code identifiers, and CI workflow/job names remain English.
+2. **Tier B — Separate Language Files**: Long-form documentation uses `readme.md` + `readme.zh-cn.md` and `contributing.md` + `contributing.zh-cn.md` with cross-link headers (`[中文文档](readme.zh-cn.md)` / `[English](readme.md)`). `license`, `template.md`, `check.md`, and `changelog.md` stay English as the single canonical specification.
+3. **Tier C — Bilingual Shells With Flexible Body Language**: Issue Forms, PR templates, Master Epics, Milestones, Release Notes, and Discussions use bilingual section headers/categories while allowing contributors to write descriptions in either English or Simplified Chinese.
 
 ````markdown
----
-name: Bug Report
-about: Report a bug or unexpected behavior
-title: "[BUG] "
-labels: bug
-assignees: AMFI-Disable
----
+## Summary / 变更摘要
 
-## Description Of The Defect
+Describe what changed and why. / 简述本次改动内容与原因。
 
-A clear and concise description of what the bug is.
+## Linked Issues / 关联议题
 
-## Steps To Reproduce
+- Refs #...
 
-1. Open '...'
-2. Navigate to '...'
-3. Trigger '...'
-4. Observe the issue.
-
-## Expected Behavior
-
-What you expected to happen.
-
-## Environment Details
-
-- **Project Version**: [e.g. 0.2.0]
-- **Browser / Runtime**: [e.g. Chrome 130, Firefox 132, Tampermonkey 5.x]
-- **Operating System**: [e.g. macOS 15, Windows 11, Linux]
-
-## Additional Context
-
-Add console errors, screenshots, or reproduction logs here.
-````
-
-#### Variant 2: Native macOS Applications And Homebrew Taps
-
-````markdown
----
-name: Bug Report
-about: Report a bug or unexpected behavior
-title: "[BUG] "
-labels: bug
-assignees: AMFI-Disable
----
-
-## Description Of The Defect
-
-A clear and concise description of what the bug is.
-
-## Steps To Reproduce
-
-1. Launch application or run command.
-2. Navigate to '...'
-3. Observe error behavior.
-
-## Expected Behavior
-
-What you expected to happen.
-
-## Environment Details
-
-- **App / Formula Version**: [e.g. 1.0.0]
-- **macOS Version**: [e.g. Sequoia 15.1]
-- **Architecture**: [e.g. Apple Silicon or Intel]
-- **Homebrew Version**: [e.g. 4.4.0]
-
-## Additional Context
-
-Add logs or diagnostic details here.
-````
-
-#### Variant 3: Python CLI And Research Workstations
-
-````markdown
----
-name: Bug Report
-about: Report a bug or unexpected behavior
-title: "[BUG] "
-labels: bug
-assignees: AMFI-Disable
----
-
-## Description Of The Defect
-
-A clear and concise description of what the bug is.
-
-## Steps To Reproduce
-
-1. Run command '...'
-2. Observe error output.
-
-## Expected Behavior
-
-What you expected to happen.
-
-## Environment Details
-
-- **Tool Version**: [e.g. 1.0.0]
-- **Python Version**: [e.g. 3.12]
-- **Operating System**: [e.g. macOS 15, Ubuntu 24.04]
-
-## Additional Context
-
-Add tracebacks or logs here.
-````
-
-### Pull Request Template (`.github/pull_request_template.md`)
-
-````markdown
-## Summary Of Changes
-
-Provide a concise overview of the problem solved and the modifications made.
-
-## Type Of Change
+## Type Of Change / 变更类型
 
 - [ ] Bug fix (`fix: ...`)
 - [ ] New feature (`feat: ...`)
@@ -633,14 +554,18 @@ Provide a concise overview of the problem solved and the modifications made.
 - [ ] Code refactoring (`refactor: ...`)
 - [ ] Performance optimization (`perf: ...`)
 
-## Pre-Flight Verification Checklist
+## Verification Evidence / 验证结果
 
-- [ ] **Strict Commit Message**: Does every commit match `xxx: xxx xxx xxx`?
-- [ ] **Lowercase Tracked Files**: Are all added or modified files strictly lowercase?
-- [ ] **Title Case Headers**: Are all markdown headings formatted in Title Case?
-- [ ] **No Emojis**: Are all modified markdown files and templates free of emojis?
-- [ ] **No Direct Binary Links**: Are all markdown files free of direct `.dmg`/`.zip`/`.exe` links?
-- [ ] **Checks And Tests Passed**: Have lint, typecheck, and unit tests passed?
+- Command(s) run and observed results. / 列出执行的测试或构建命令及结果。
+
+## Pre-Flight Verification Checklist / 提交前检查
+
+- [ ] **Strict Commit Message**: Matches `xxx: xxx xxx xxx`
+- [ ] **Lowercase Tracked Files**: All added/modified paths are lowercase
+- [ ] **Title Case Headers & No Emojis**: Clean Markdown formatting
+- [ ] **No Direct Binary Links**: Releases route through GitHub Releases
+- [ ] **Bilingual Parity**: `readme.zh-cn.md` updated if `readme.md` changed
+- [ ] **Checks And Tests Passed**: Lint, typecheck, and unit tests pass
 ````
 
 ---
@@ -720,11 +645,13 @@ tmp/
 
 ---
 
-## 11. Documentation Link Integrity And Policy Compliance
+## 11. Documentation Link Integrity, Metadata, And Workflows
 
 1. **Repository-Relative Internal Links**: Always use lowercase relative paths (`[Changelog](changelog.md)`, `[Security Policy](security.md)`, `[License](license)`). Never commit local machine paths (`file:///Users/...`).
 2. **Zero Direct Binary Links**: Never embed direct download links to `.dmg`, `.zip`, `.pkg`, `.exe`, or `.tar.gz` in markdown files. Route downloads through GitHub Releases (`https://github.com/AMFI-Disable/<Repo>/releases`) or package managers.
 3. **Educational & Fair-Play Disclaimer (`> [!CAUTION]`)**: Required in `readme.md` and release descriptions for automation, scraping, game tools, or simulator extensions.
+4. **Repository Metadata**: Every public repository must set a 1-line description, 4–10 lowercase topics, and the live GitHub Pages URL when Pages is enabled.
+5. **GitHub Actions Naming**: Use lowercase workflow filenames (`ci.yml` / `CI`, `pages.yml` / `Deploy To GitHub Pages`, `release.yml` / `Release`, `compliance.yml` / `Repository Compliance`) and clear job names (`Preflight & Compliance`, `Build & Unit Tests`, `Deploy Pages`, `Publish Release`).
 
 ---
 
@@ -753,57 +680,3 @@ Instead, report it privately through one of the following channels:
 - **GitHub Security Advisories**: Open a private security advisory on `https://github.com/AMFI-Disable/<Repo>/security/advisories/new`.
 - **Direct Email**: Contact `evengao6688@gmail.com` with reproduction steps, affected environment details, and impact summary.
 ````
-
----
-
-## 13. Versioning And Release Management
-
-All repositories follow **Semantic Versioning** (`MAJOR.MINOR.PATCH`, optionally suffixed with `-alpha.N`, `-beta.N`, or `-rc.N` for pre-releases).
-
-### Increment Rules
-
-| Component | When To Increment | Examples |
-| :--- | :--- | :--- |
-| **`MAJOR` (`X.0.0`)** | Breaking save/protocol/API changes, major engine rewrites, or incompatible config migrations | Rollback protocol change breaking older clients; D1 schema break |
-| **`MINOR` (`0.X.0`)** | Backward-compatible feature additions, new modes/maps/heroes, or substantial UI additions | New game mode, new macOS utility module, new extension feature |
-| **`PATCH` (`0.0.X`)** | Bug fixes, CI/dependency fixes, performance tuning, documentation updates, or urgent hotfixes | D1 quota protection, CI race fix, link/copy fixes |
-
-### Planning And Tracking Integration
-
-- **GitHub Milestones** represent **target release versions** (for example, `v1.1.0`, `v0.2.0`).
-- **Master Epics** organize phased roadmaps (`Phase 1..N`) and must declare:
-  - Current Version and Target Release Version
-  - Release Objectives, Phases, Dependencies, and Compatibility Requirements
-  - Testing and Release Acceptance Criteria, Changelog Requirements, and Deployment Procedures
-- **Labels** classify `priority:*`, `difficulty:*`, `type:*`, `area:*`, and `status:*`.
-- **Release Gate**: Tagging and publishing (`vX.Y.Z`) occurs only after all milestone-required issues are closed, acceptance criteria are met, and CI passes. Urgent patches may release independently on `main` without blocking the next `MINOR` milestone.
-
----
-
-## 14. Issue Management Standard
-
-All repositories use a unified, lightweight issue convention supporting both English and Chinese descriptions.
-
-### Standardized Title Prefixes
-
-Every new or open issue title must begin with one uppercase bracketed category prefix:
-
-| Prefix | Scope |
-| :--- | :--- |
-| **`[EPIC]`** | Phased master roadmap coordinating multiple child issues |
-| **`[FEATURE]`** | New feature, mode, gameplay mechanic, or enhancement |
-| **`[BUG]`** | Defect, regression, or unexpected runtime behavior |
-| **`[REFACTOR]`** | Structural code, data, or tooling reorganization |
-| **`[PERF]`** | Rendering, simulation, bundle, or quota/latency optimization |
-| **`[UI]`** | Visual layout, HUD, accessibility, or audio/UX polish |
-| **`[TEST]`** | Automated test suites, regression harnesses, or CI validation |
-| **`[DOCS]`** | Documentation, READMEs, wikis, or design specifications |
-| **`[SECURITY]`** | Security hardening, permissions, auth, or vulnerability fixes |
-
-### Required Issue Metadata And Structure
-
-1. **Labels**: Every issue carries a priority (`priority: p0|p1|p2|p3` or `P0`–`P3`), difficulty (`difficulty: low|medium|high` or `难度: 低|中|高`), and relevant `area:*` label (`epic` for master epics).
-2. **Milestone**: Assign to the target release milestone (e.g., `v1.1.0`, `v0.2.0`).
-3. **Assignee**: Assign a primary owner before active implementation begins (1–2 active issues per teammate; no rigid deadlines).
-4. **Body Sections**: Include Scope/Problem, Dependencies (`Depends on #N` when applicable), and measurable Acceptance Criteria (`- [ ] ...` checkboxes with test/CI commands).
-5. **Closure**: Reference the resolving commit SHA (`Refs #N` / `Closes #N`) in a brief closing comment. Closed historical issues are preserved without retroactive edits.

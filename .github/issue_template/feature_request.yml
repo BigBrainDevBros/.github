@@ -1,0 +1,39 @@
+name: Feature Request / 功能提案
+description: Propose a new feature or enhancement / 提出新功能或改进建议
+title: "[FEATURE] "
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category Prefix / 类别前缀
+      options:
+        - "[FEATURE]"
+        - "[PERF]"
+        - "[UI]"
+        - "[REFACTOR]"
+        - "[TEST]"
+        - "[DOCS]"
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope And Motivation / 目标与实现范围
+      description: Describe the feature or improvement (English or Simplified Chinese). / 描述需求背景与实现范围。
+    validations:
+      required: true
+  - type: input
+    id: dependencies
+    attributes:
+      label: Dependencies / 依赖议题
+      placeholder: "e.g. Depends on #10 (optional)"
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria / 验收标准
+      value: |
+        - [ ] Implementation matches scope
+        - [ ] Tests, build, and CI checks pass
+    validations:
+      required: true

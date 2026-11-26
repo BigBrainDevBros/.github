@@ -49,3 +49,16 @@ jobs:
                   raise SystemExit(f"Invalid commit message {sha[:7]}: {msg}")
           print("Commit message check passed.")
           '
+
+      - name: Verify Bilingual README Cross-Links
+        run: |
+          python3 -c '
+          from pathlib import Path
+          en, zh = Path("readme.md"), Path("readme.zh-cn.md")
+          if en.exists() and zh.exists():
+              if "readme.zh-cn.md" not in en.read_text(encoding="utf-8"):
+                  raise SystemExit("readme.md must link to readme.zh-cn.md")
+              if "readme.md" not in zh.read_text(encoding="utf-8"):
+                  raise SystemExit("readme.zh-cn.md must link to readme.md")
+              print("Bilingual README cross-links verified.")
+          '
