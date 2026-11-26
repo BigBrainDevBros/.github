@@ -99,7 +99,7 @@ Before saving, committing, or pushing changes, every agent must verify:
 10. [ ] **Version Parity**: On release commits, do manifest/in-app version constants match `changelog.md` and the target SemVer tag?
 11. [ ] **Issue Standard Compliance**: Do new/open issues use a canonical `[PREFIX]` title, priority/difficulty/area labels, target milestone, assignee, and measurable acceptance criteria?
 12. [ ] **Bilingual Parity**: When `readme.zh-cn.md` or bilingual Wiki pages exist, do they cross-link their English counterparts and match the current version badge (while issues, PRs, and Discussions may use either English or Simplified Chinese)?
-13. [ ] **Project Board Alignment**: Are open roadmap issues linked to their repository's GitHub Project with Phase/Milestone metadata and automated status workflows enabled?
+13. [ ] **Projects And Wiki Alignment**: Are open roadmap issues linked to their repository's GitHub Project with Phase/Milestone metadata and automated status workflows enabled, and are `docs/wiki/` mirrors synchronized with GitHub Wiki without emojis or binary links?
 
 ---
 

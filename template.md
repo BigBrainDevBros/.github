@@ -524,10 +524,11 @@ Every new or open issue title must begin with one canonical uppercase bracketed 
 1. **Labels & Milestones**: Assign priority (`priority: p0`–`p3` or `P0`–`P3`), difficulty (`difficulty: low|medium|high` or `难度: 低|中|高`), `area:*` (`epic` for master epics), target release milestone, and 1 primary assignee (`1–2` concurrent active issues/teammate; no rigid deadlines).
 2. **Master Epics**: Declare `Current Version`, `Target Release Version`, `Phased Execution Plan` (`Phase 1..N`), child issue links/dependencies, periodic progress comments citing commit SHAs, and release acceptance criteria.
 3. **Pull Requests (`.github/pull_request_template.md`)**: Include bilingual headings (`## Summary / 变更摘要`, `## Linked Issues / 关联议题`, `## Verification Evidence / 验证结果`, `## Checklist / 提交前检查`), passing CI, and peer review on shared core/netplay/server changes.
-4. **GitHub Discussions & Projects**:
+4. **GitHub Discussions, Projects, And Wikis**:
    - Use `BigBrainDevBros/.github` Discussions (`[Topic] <Summary>` or `[Cross-Repo] <Source> -> <Target>: <Summary>`) for cross-repo ideas.
    - Enable GitHub Projects on collaborative repositories with standard custom fields (`Phase`, `Priority`, `Difficulty`, `Dependencies`) and views for **By Phase**, **Upcoming Releases (Milestones)**, **By Assignee**, **Blocked**, and **Completed**.
    - Enable GitHub built-in Project workflows (`Item added to project` -> `Ready`, `Item closed` -> `Done`, `Pull request merged` -> `Done`) to minimize manual board updates.
+   - Enable GitHub Wikis (`has_wiki: true`) on collaborative repositories (`RenYing`, `FaceOff`), maintain an in-repo `docs/wiki/` mirror with `_sidebar.md` and `_footer.md`, follow bilingual `en` / `zh-cn` standards, and omit emojis and direct binary links.
 
 ---
 
