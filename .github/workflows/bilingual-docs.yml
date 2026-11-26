@@ -1,0 +1,48 @@
+name: Bilingual Documentation
+
+on:
+  workflow_call:
+  push:
+    paths:
+      - '**/*.md'
+      - '*.md'
+      - '.github/workflows/bilingual-docs.yml'
+  pull_request:
+    paths:
+      - '**/*.md'
+      - '*.md'
+      - '.github/workflows/bilingual-docs.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Check Language Navigation
+        run: |
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+
+          pairs = [Path("readme.md"), Path("profile/readme.md"), Path("contributing.md"),
+                   Path(".github/contributing.md"), Path("docs/wiki/home.md")]
+          failures = []
+          for english in pairs:
+              chinese = english.with_suffix(".zh-cn.md")
+              if not (english.exists() or chinese.exists()):
+                  continue
+              for page, counterpart in [(english, chinese), (chinese, english)]:
+                  if not page.is_file():
+                      failures.append(f"Missing {page}")
+                      continue
+                  local_link = rf"\[[^\]]+\]\((?:\./)?{re.escape(counterpart.name)}\)"
+                  if not re.search(local_link, page.read_text()):
+                      failures.append(f"{page} needs a link to {counterpart.name}")
+          if failures:
+              raise SystemExit("\n".join(failures))
+          PY

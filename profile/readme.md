@@ -15,7 +15,7 @@
 
 ## GitHub Star History
 
-![Total Stars](https://img.shields.io/badge/Total%20Stars-14-f59e0b?style=flat-square)
+The chart covers the three games below and this community repository. The [public activity snapshot](https://github.com/AMFI-Disable/AMFI-Disable#github-star-history--activity) lists the total for the organisation.
 
 <a href="https://www.star-history.com/?type=date&repos=bigbraindevbros%2F.github%2Cbigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying%2Cbigbraindevbros%2Fvantage">
   <picture>

@@ -17,3 +17,7 @@ All contributors and AI agents working in **BigBrainDevBros** repositories must 
 3. **Lowercase Paths**: Keep all tracked files and directories strictly lowercase (except explicitly permitted repository exceptions such as `TornTools`).
 4. **Title Case Headers And No Emojis**: Format all Markdown headers in Title Case and use plain text instead of emojis in documentation and templates.
 5. **No Unapproved Releases**: Never tag, release, or publish packages without explicit maintainer approval.
+
+## Bilingual Documentation Checks
+
+The read-only `bilingual-docs.yml` reusable workflow checks reciprocal English and Simplified Chinese navigation for README, contributing and wiki home pages. Call it from a repository workflow using `jobs.<job>.uses` with the reviewed commit SHA of `BigBrainDevBros/.github/.github/workflows/bilingual-docs.yml`. Reviewers still check translations and release numbers.

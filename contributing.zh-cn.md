@@ -23,3 +23,7 @@
 3. **全小写路径**：Git 跟踪的所有文件名与目录名必须为小写（`CNAME` 与 `TornTools` 例外）。
 4. **标题格式与零表情**：Markdown 标题使用规范格式，文档与模板中禁止使用 emoji。
 5. **发布审批**：未经维护者明确同意，不得私自打 tag 或发布 GitHub Release。
+
+## 双语文档检查
+
+只读的 `bilingual-docs.yml` 可复用工作流检查项目说明、贡献指南及 Wiki 首页的英中双向链接。项目可在工作流的 `jobs.<job>.uses` 中引用 `BigBrainDevBros/.github/.github/workflows/bilingual-docs.yml` 并固定到已审核的提交 SHA。翻译内容与发布版本仍须由审阅者核对。

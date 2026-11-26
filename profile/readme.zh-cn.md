@@ -13,6 +13,20 @@
 
 ---
 
+## 星标历史
+
+图表涵盖下方的三个游戏仓库和本社区仓库。[公开数据快照](https://github.com/AMFI-Disable/AMFI-Disable#github-star-history--activity)列出整个组织的星标总数。
+
+<a href="https://www.star-history.com/?type=date&repos=bigbraindevbros%2F.github%2Cbigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying%2Cbigbraindevbros%2Fvantage">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=bigbraindevbros%2F.github%2Cbigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying%2Cbigbraindevbros%2Fvantage&type=date&theme=dark&legend=top-left" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=bigbraindevbros%2F.github%2Cbigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying%2Cbigbraindevbros%2Fvantage&type=date&legend=top-left" />
+    <img alt="三个游戏仓库与社区仓库的星标历史" src="https://api.star-history.com/chart?repos=bigbraindevbros%2F.github%2Cbigbraindevbros%2Ffaceoff%2Cbigbraindevbros%2Frenying%2Cbigbraindevbros%2Fvantage&type=date&legend=top-left" />
+  </picture>
+</a>
+
+---
+
 ## 关于我们
 
 **BigBrainDevBros** 是一个协作工程组织，专注于构建快速、本地优先、零遥测的开源软件，涵盖浏览器多人对战游戏、原生 macOS 工具、浏览器扩展与命令行工作站。
