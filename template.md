@@ -524,7 +524,10 @@ Every new or open issue title must begin with one canonical uppercase bracketed 
 1. **Labels & Milestones**: Assign priority (`priority: p0`–`p3` or `P0`–`P3`), difficulty (`difficulty: low|medium|high` or `难度: 低|中|高`), `area:*` (`epic` for master epics), target release milestone, and 1 primary assignee (`1–2` concurrent active issues/teammate; no rigid deadlines).
 2. **Master Epics**: Declare `Current Version`, `Target Release Version`, `Phased Execution Plan` (`Phase 1..N`), child issue links/dependencies, periodic progress comments citing commit SHAs, and release acceptance criteria.
 3. **Pull Requests (`.github/pull_request_template.md`)**: Include bilingual headings (`## Summary / 变更摘要`, `## Linked Issues / 关联议题`, `## Verification Evidence / 验证结果`, `## Checklist / 提交前检查`), passing CI, and peer review on shared core/netplay/server changes.
-4. **GitHub Discussions & Projects**: Use `BigBrainDevBros/.github` Discussions (`[Topic] <Summary>` or `[Cross-Repo] <Source> -> <Target>: <Summary>`) for cross-repo ideas; use Project columns `Backlog` -> `Ready` -> `In Progress` -> `In Review` -> `Done` (+ `Paused`).
+4. **GitHub Discussions & Projects**:
+   - Use `BigBrainDevBros/.github` Discussions (`[Topic] <Summary>` or `[Cross-Repo] <Source> -> <Target>: <Summary>`) for cross-repo ideas.
+   - Enable GitHub Projects on collaborative repositories with standard custom fields (`Phase`, `Priority`, `Difficulty`, `Dependencies`) and views for **By Phase**, **Upcoming Releases (Milestones)**, **By Assignee**, **Blocked**, and **Completed**.
+   - Enable GitHub built-in Project workflows (`Item added to project` -> `Ready`, `Item closed` -> `Done`, `Pull request merged` -> `Done`) to minimize manual board updates.
 
 ---
 
@@ -533,7 +536,7 @@ Every new or open issue title must begin with one canonical uppercase bracketed 
 Repositories use a **Three-Tier Bilingual Framework** for English (`en`) and Simplified Chinese (`zh-CN`):
 
 1. **Tier A — English-Only Technical Identifiers**: Commit messages, branch names, SemVer tags, GitHub labels, `[PREFIX]` tags, file/folder paths, code identifiers, and CI workflow/job names remain English.
-2. **Tier B — Separate Language Files**: Long-form documentation uses `readme.md` + `readme.zh-cn.md` and `contributing.md` + `contributing.zh-cn.md` with cross-link headers (`[中文文档](readme.zh-cn.md)` / `[English](readme.md)`). `license`, `template.md`, `check.md`, and `changelog.md` stay English as the single canonical specification.
+2. **Tier B — Separate Language Files**: Long-form documentation uses `readme.md` + `readme.zh-cn.md`, `contributing.md` + `contributing.zh-cn.md`, and Wiki pages (`Home.md` + `Home.zh-cn.md`, mirrored in `docs/wiki/` when applicable) with cross-link headers (`[中文文档](readme.zh-cn.md)` / `[English](readme.md)`). `license`, `template.md`, `check.md`, and `changelog.md` stay English as the single canonical specification.
 3. **Tier C — Bilingual Shells With Flexible Body Language**: Issue Forms, PR templates, Master Epics, Milestones, Release Notes, and Discussions use bilingual section headers/categories while allowing contributors to write descriptions in either English or Simplified Chinese.
 
 ````markdown
