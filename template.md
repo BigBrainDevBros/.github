@@ -777,3 +777,33 @@ All repositories follow **Semantic Versioning** (`MAJOR.MINOR.PATCH`, optionally
   - Testing and Release Acceptance Criteria, Changelog Requirements, and Deployment Procedures
 - **Labels** classify `priority:*`, `difficulty:*`, `type:*`, `area:*`, and `status:*`.
 - **Release Gate**: Tagging and publishing (`vX.Y.Z`) occurs only after all milestone-required issues are closed, acceptance criteria are met, and CI passes. Urgent patches may release independently on `main` without blocking the next `MINOR` milestone.
+
+---
+
+## 14. Issue Management Standard
+
+All repositories use a unified, lightweight issue convention supporting both English and Chinese descriptions.
+
+### Standardized Title Prefixes
+
+Every new or open issue title must begin with one uppercase bracketed category prefix:
+
+| Prefix | Scope |
+| :--- | :--- |
+| **`[EPIC]`** | Phased master roadmap coordinating multiple child issues |
+| **`[FEATURE]`** | New feature, mode, gameplay mechanic, or enhancement |
+| **`[BUG]`** | Defect, regression, or unexpected runtime behavior |
+| **`[REFACTOR]`** | Structural code, data, or tooling reorganization |
+| **`[PERF]`** | Rendering, simulation, bundle, or quota/latency optimization |
+| **`[UI]`** | Visual layout, HUD, accessibility, or audio/UX polish |
+| **`[TEST]`** | Automated test suites, regression harnesses, or CI validation |
+| **`[DOCS]`** | Documentation, READMEs, wikis, or design specifications |
+| **`[SECURITY]`** | Security hardening, permissions, auth, or vulnerability fixes |
+
+### Required Issue Metadata And Structure
+
+1. **Labels**: Every issue carries a priority (`priority: p0|p1|p2|p3` or `P0`–`P3`), difficulty (`difficulty: low|medium|high` or `难度: 低|中|高`), and relevant `area:*` label (`epic` for master epics).
+2. **Milestone**: Assign to the target release milestone (e.g., `v1.1.0`, `v0.2.0`).
+3. **Assignee**: Assign a primary owner before active implementation begins (1–2 active issues per teammate; no rigid deadlines).
+4. **Body Sections**: Include Scope/Problem, Dependencies (`Depends on #N` when applicable), and measurable Acceptance Criteria (`- [ ] ...` checkboxes with test/CI commands).
+5. **Closure**: Reference the resolving commit SHA (`Refs #N` / `Closes #N`) in a brief closing comment. Closed historical issues are preserved without retroactive edits.
