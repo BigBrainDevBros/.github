@@ -72,6 +72,8 @@ In addition to GitHub's platform policies, all agents working in this project en
 ### 5. Publishing And Release Gate
 
 - **Do Not Publish Releases Unprompted**: Never automatically tag, release, or publish packages, artifacts, or GitHub Releases without explicit user consent.
+- **Apply Release Rules By Repository Type**: Only repositories that distribute installable binaries, packages, extensions, or milestone game builds (`macOS` apps, Homebrew source formulas, browser extensions, Python/CLI packages, and milestone-tracked games) require SemVer tags (`vX.Y.Z`) and GitHub Releases. Websites, project hubs, profile repos, organization config repos, Homebrew taps, educational repos, and archived repos use continuous `main` updates without formal releases.
+- **Protect Downstream References Before Cleanup**: Never delete a Git tag or GitHub Release without first verifying that no Homebrew cask/formula, userscript `@updateURL`, CI workflow, or documentation link references it.
 
 ### 6. Repository-Specific Exceptions
 
@@ -96,7 +98,7 @@ Before saving, committing, or pushing changes, every agent must verify:
 7. [ ] **Title Case Headers**: Are all headers formatted with Capitalized Words in human phrasing?
 8. [ ] **No Emojis**: Are all documentation files, release notes, and `.github/` templates completely free of emojis?
 9. [ ] **No Unapproved Releases**: Are all publishing/release actions held until specifically requested by the user?
-10. [ ] **Version Parity**: On release commits, do manifest/in-app version constants match `changelog.md` and the target SemVer tag?
+10. [ ] **Version Parity**: On release-tracked repositories, do `manifest.json`, `package.json`, `.user.js` `@version`, in-app version constants, `changelog.md`, and the target SemVer tag match (and are non-release repos kept free of unnecessary tags/releases)?
 11. [ ] **Issue Standard Compliance**: Do new/open issues use a canonical `[PREFIX]` title, priority/difficulty/area labels, target milestone, assignee, and measurable acceptance criteria?
 12. [ ] **Bilingual Parity**: When `readme.zh-cn.md` or bilingual Wiki pages exist, do they cross-link their English counterparts and match the current version badge (while issues, PRs, and Discussions may use either English or Simplified Chinese)?
 13. [ ] **Projects And Wiki Alignment**: Are open roadmap issues linked to their repository's GitHub Project with Phase/Milestone metadata and automated status workflows enabled, and are `docs/wiki/` mirrors synchronized with GitHub Wiki without emojis or binary links?

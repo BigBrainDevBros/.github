@@ -395,7 +395,21 @@ npm test
 
 ## 4. Versioning, Milestones, Tags, And GitHub Releases
 
-All repositories follow **Semantic Versioning** (`MAJOR.MINOR.PATCH`, optionally suffixed with `-alpha.N`, `-beta.N`, or `-rc.N` for pre-releases).
+All versioned repositories follow **Semantic Versioning** (`MAJOR.MINOR.PATCH`, optionally suffixed with `-alpha.N`, `-beta.N`, or `-rc.N` for pre-releases). However, **formal Git tags and GitHub Releases are scoped by repository type** rather than applied uniformly to every repository.
+
+### Release Strategy By Repository Type
+
+| Repository Type | Formal SemVer Tags | GitHub Releases & Artifacts | Recommended Frequency & Strategy |
+| :--- | :--- | :--- | :--- |
+| **macOS Applications & Python/CLI Packages** (`BrewStore`, `Juicer`, `PathDeck`, `OmniSuite`) | Required (`vX.Y.Z`) | Required: `.dmg` / `.zip` / `.whl` + `.sha256` checksums | Milestone or feature releases; Homebrew casks/formulas pin directly to release tags and assets. Clean up superseded `-alpha`/`-beta` pre-releases once stable ships |
+| **Homebrew Formula / Tap Repos** (`Brew-Ghost`, `Homebrew-Tap`) | Source formula repo: Required (`vX.Y.Z`); Tap repo: None | Source formula repo: Optional (tag archive `.tar.gz` suffices); Tap repo: None | `Homebrew-Tap` updates continuously on `main` via `cask-autoupdate.yml`; never delete tags referenced by active formula `url`s |
+| **Browser Extensions** (`GeoFS_Extension`, `FMG_Free-MapGenie`) | Required (`vX.Y.Z`) | Required: Packaged `.zip` bundle matching `manifest.json` / `package.json` | Tag and release via `release.yml` on `v*` when manifest version bumps; keep `manifest.json`, `package.json`, and tag identical |
+| **Userscripts** (`Lichess-AutoPlayer`, `GimSell_Gimkit-Seller`) | Recommended (`vX.Y.Z`) or `@version` parity | Optional (raw `main` `@updateURL`/`@downloadURL` or tagged release) | Bump `@version` in `.user.js`, `changelog.md`, and `package.json` together; publish formal releases only for major/minor milestones or breaking changes |
+| **Browser Games** (`RenYing`, `FaceOff`, `VANTAGE`) | Optional (recommended for major milestones like `RenYing`) | Optional: Milestone release notes (plus offline HTML bundle if applicable) | Deploy continuously to GitHub Pages from `main`; create milestone tags/releases (`v1.x.0`) only for major content updates |
+| **Personal Websites & Project Hubs** (`AMFI-Disable.github.io`) | None | None | Continuous deployment on `main` via `pages.yml` / `deploy.yml`; track changes in `changelog.md` without release tags |
+| **Profile & Organization Config Repos** (`AMFI-Disable`, `BigBrainDevBros/.github`) | None | None | Continuous updates on `main`; no tags or releases |
+| **Educational, Research & Coursework Repos** (`HiMCM-2026_HEGA`, `Chess-Repertoire_App`) | None (unless publishing a dataset/tool) | None | Continuous commits on `main` (or collaborator branch); follow repo-specific `AGENTS.md` |
+| **Forks & Archived Repos** (`TornTools`, `GeoFS_LiverySelector`, `Homebrew-BrewStore`, `Homebrew-Juicer`) | Follow upstream or frozen | Frozen (retain existing tags/assets referenced by downstream) | Never add unprompted releases; `TornTools` strictly follows upstream `Mephiles/torntools_extension` |
 
 | Component | When To Increment | Examples |
 | :--- | :--- | :--- |
